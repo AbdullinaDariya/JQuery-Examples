@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<h3><pre>
+Автор:Абдуллина ПИ18-1
+Описание примера2: пусть задан список покупок, выделить элемент списка, найти возможное число наведений на кнопки,свернуть список
+Используемые функции:parent(),slideToggle(),mouseover()
+</pre></h3>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+	$( document ).ready(function(){
+	  $( ".parent" ).click(function(){ // вызываем функцию при нажатии на элемент с классом parent
+	    $( "*" ).css( "border", "none" ); // с использованием универсального селектора убираем границы у всех элементов
+	    $( ".second" ).parent().css( "border", "1px solid green" ); // устанавливаем родительскому элементу каждого элемента с классом level3 сплошную границу размером 1 пиксель зеленого цвета
+	  })
+	  
+	
+	$(".slide").click(function () {
+      $(".level3").slideToggle("slow");
+    });
+	  var num = 0; // переменная (счетчик возникновения события)
+	  $( ".slide" ).mouseover(function(){ // задаем функцию при вхождении указателя мыши в элемент slide
+	    num ++; // инкремент	  
+	    $( "div" ).text( "Попыток нажать на сворачивание " +  num); // выводим количество срабатываний события
+	  });
+	  });
+</script>
+</head>
+
+	<body>
+		<ul>
+			<li>Одежда</li>
+			<li>Инструменты</li>
+			<li>Продукты
+				<ul>
+					<li>Овощи</li>
+					<li class ="second">Фрукты</li>
+					<li>Сладости
+						<ul>
+							<li class ="level3">Конфеты</li>
+							<li class ="level3">Печенье</li>
+							<li class ="level3">Торты</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		
+		
+	<br><button class="parent">Выделить список продуктов</button>
+	<button class="slide">Свернуть список сладостей</button><br><br>
+	<div></div>
+	</body>
+</html>

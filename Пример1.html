@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<h3><pre>
+Автор:Абдуллина ПИ18-1
+Описание примера1: пусть задан список покупок семьи, произвести изменение внешнего вида страницы
+Используемые функции:addClass(),.offset(),innerWidth(),wrap()
+</pre></h3>
+
+</head>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+<body>
+
+<ul id="list">
+    <li class="item"> Список покупок семьи </li >		
+  </ul>
+ <table border="1" width="100%" cellpadding="5">
+   <tr>
+    <th>Номер</th>
+    <th>Покупка</th>
+	<th>Сумма</th>
+   </tr>
+   <tr>
+    <td>1</td>
+    <td>Яблоки</td>
+	<td>200</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Морковь</td>
+	<td>70</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Картошка</td>
+	<td>300</td>
+  </tr>
+ </table>
+ 
+  <style>
+    div{
+      display: block;
+      width: 50px;
+      height: 50px;
+      float: left;
+      padding: 15px;
+      margin: 10px;
+      font-size: 20pt;
+    }
+    .dotted{border:2px dotted blue}
+	ul{
+      margin: 10px;
+   }
+   .item{
+      float: left;
+      height:20px;
+      width:100px;
+      margin: 10px;
+      padding: 30px;
+      background-color: #4169E1;
+      list-style-type:none;
+	  color: white;
+	  border: 1px solid #000;
+    }
+	.orangeBorder {
+		border: 1px solid orange;  
+		}
+	p {
+    color: rgb(49, 151, 116); 
+	size:20pt;
+   }
+  </style>
+
+<br><br>
+<p>Итого:570 рублей</p>
+
+
+
+<br><br><br><button name="b_addclass">Пунктирная линия</button> 
+<button name="b_offset">Пододвинуть</button> 
+<button name="b_width">Сделать шире</button> 
+<button name="b_wrap">Обернуть</button> 				
+<script>
+    $( "[name=b_addclass]" ).click(function(){ // задаем функцию при нажатиии на элемент <button>
+		$("table").addClass("dotted"); //использование метода addClass для присвоения таблице обрамления
+	});
+	
+	$( "[name=b_offset]" ).click(function(){
+		$(".item:first").offset({top:140, left:10});
+		});//использование offset для задания координаты элементу-список
+		
+	$( "[name=b_width]" ).click(function(){
+		$(".item:first").innerWidth(function(i,val){return val+100;});
+    });
+	
+	$( "[name=b_wrap]" ).click(function(){ 
+	    $( "p" ).wrap('<div class="orangeBorder"></div>'); // обертываем  элемент <p> в документе  
+	  });
+
+
+</script>
+</body>
+</html>
